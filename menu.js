@@ -43,7 +43,7 @@ const depositar = () => {
     } else {
         let balance = parseFloat(selected[0].saldo) + parseFloat(amount);
         selected[0].saldo = balance.toFixed(2);
-        actions.innerHTML = `Tu nuevo saldo es $${selected[0].saldo}`;
+        actions.innerHTML = `<p>Monto depositado: $${amount}</p><p>Tu nuevo saldo es $${selected[0].saldo}</p>`;
     }
 };
 
@@ -60,7 +60,7 @@ const retirar = () => {
     } else {
         let balance = parseFloat(selected[0].saldo) - parseFloat(amount);
         selected[0].saldo = balance.toFixed(2);
-        actions.innerHTML = `Tu nuevo saldo es $${selected[0].saldo}`;
+        actions.innerHTML = `<p>Monto retirado: $${amount}</p><p>Tu nuevo saldo es $${selected[0].saldo}</p>`;
     }
 };
 
