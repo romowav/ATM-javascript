@@ -2,7 +2,7 @@ const actions = document.querySelector("#actions");
 
 // (this) en funciones de Javascript
 
-// function renderMenu(nombre)  {
+// Esta es mi funcion la cual estoy llamando en el archivo main.js
 const renderMenu = (nombre) => {
 let menu = `
     <div>
@@ -26,6 +26,7 @@ let menu = `
 wrapper.innerHTML = menu;
 };
 
+// Funciones del ATM, una vez que ya ingresamos
 const consultar = () => {
     actions.innerHTML = ""
     actions.innerHTML = `<p>Su saldo es $${selected[0].saldo}</p>`
