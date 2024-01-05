@@ -34,17 +34,35 @@ const consultar = () => {
 
 const depositar = () => {
     let amount = prompt("Ingresa el monto a depositar", "");
-    let balance = parseFloat(selected[0].saldo) + parseFloat(amount)
-    selected[0].saldo = balance.toFixed(2)
-    actions.innerHTML = `Tu nuevo saldo es $${selected[0].saldo}`
-    };
+    if (amount === null) {
+        actions.innerHTML = `Tu saldo se mantuvo en $${selected[0].saldo}`;
+    }else if (amount === "") {
+        actions.innerHTML = `Tu saldo se mantuvo en $${selected[0].saldo}`;
+    } else if (parseFloat(selected[0].saldo) + parseFloat(amount) > 990) {
+        actions.innerHTML = `Tu saldo no puede ser mayor a 990`;
+    } else {
+        let balance = parseFloat(selected[0].saldo) + parseFloat(amount);
+        selected[0].saldo = balance.toFixed(2);
+        actions.innerHTML = `Tu nuevo saldo es $${selected[0].saldo}`;
+    }
+};
 
 const retirar = () => {
     let amount = prompt("Ingresa el monto a retirar", "");
-    let balance = parseFloat(selected[0].saldo) - parseFloat(amount)
-    selected[0].saldo = balance.toFixed(2)
-    actions.innerHTML = `Tu nuevo saldo es $${selected[0].saldo}`
-    };
+    // selected[0].saldo = balance.toFixed(2)
+    // actions.innerHTML = `Tu nuevo saldo es $${selected[0].saldo}`
+    if (amount === null) {
+        actions.innerHTML = `Tu saldo se mantuvo en $${selected[0].saldo}`;
+    }else if (amount === "") {
+        actions.innerHTML = `Tu saldo se mantuvo en $${selected[0].saldo}`;
+    } else if (parseFloat(selected[0].saldo) - parseFloat(amount) < 10) {
+        actions.innerHTML = `Tu saldo no puede ser menor a 10`;
+    } else {
+        let balance = parseFloat(selected[0].saldo) - parseFloat(amount);
+        selected[0].saldo = balance.toFixed(2);
+        actions.innerHTML = `Tu nuevo saldo es $${selected[0].saldo}`;
+    }
+};
 
 const salir = () => {
     location.reload();
